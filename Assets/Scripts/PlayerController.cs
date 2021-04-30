@@ -5,7 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(TankData))]
 public class PlayerController : MonoBehaviour
 {
-    public TankData td;
+    public TankData tData;
+    public TankMotor tMotor;
+    private TankShooter tShooter;
     public enum ControlType {WASD, ArrowKeys };
     public ControlType input;
 
@@ -14,8 +16,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        td = GetComponent<TankData>();
-        
+        tData = GetComponent<TankData>();
+        tMotor = GetComponent<TankMotor>();
+        tShooter = GetComponent<TankShooter>();
+
+
     }
 
     // Update is called once per frame
@@ -26,30 +31,35 @@ public class PlayerController : MonoBehaviour
         switch (input)
 		{
 			case ControlType.WASD:
+                //Handles Movement
                 if (Input.GetKey(KeyCode.W))
                 {
                     //Move Forward (+)
-                    td.mover.Move(transform.forward);
+                    tMotor.Move(tData.moveSpeed);
                 }
-                if (Input.GetKey(KeyCode.S))
+                else if (Input.GetKey(KeyCode.S))
                 {
                     //Move Backward (-)
-                    td.mover.Move(-transform.forward);
+                    tMotor.Move(-tData.moveSpeed);
 
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
                     //Move Counterclockwise (-)
-                    td.mover.Rotate(false);
+                    tMotor.Rotate(-tData.rotateSpeed);
                 }
-                if (Input.GetKey(KeyCode.D))
+                else if (Input.GetKey(KeyCode.D))
                 {
                     //Move Clockwise (+)
-                    td.mover.Rotate(true);
+                    tMotor.Rotate(tData.rotateSpeed);
                 }
+                if (Input.GetKey(KeyCode.Space))
+				{
+                    tShooter.Shoot();
+				}
                 else
                 {
-                    td.mover.Move(directionToMove);
+                    tMotor.Move(0);
                 }
                 break;
                 
@@ -57,27 +67,27 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
                     //Move Forward (+)
-                    td.mover.Move(transform.forward);
+                    tMotor.Move(tData.moveSpeed);
                 }
                 if (Input.GetKey(KeyCode.DownArrow))
                 {
                     //Move Backward (-)
-                    td.mover.Move(-transform.forward);
+                    tMotor.Move(-tData.moveSpeed);
 
                 }
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
                     //Move Counterclockwise (-)
-                    td.mover.Rotate(false);
+                    tMotor.Rotate(-tData.rotateSpeed);
                 }
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
                     //Move Clockwise (+)
-                    td.mover.Rotate(true);
+                    tMotor.Rotate(tData.rotateSpeed);
                 }
                 else
                 {
-                    td.mover.Move(directionToMove);
+                    tMotor.Move(0);
                 }
                 break;
 

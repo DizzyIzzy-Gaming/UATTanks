@@ -16,14 +16,14 @@ public class CountDownTimer : MonoBehaviour
     void Update()
     {
         if (timeRemaining <= 0f)
-		{
+        {
             Debug.Log("The Timer has Ended");
             ResetTimer();
-		}
+        }
     }
 
     void ResetTimer()
-	{
+    {
         timeRemaining = timeToWait;
-	}
+    }
 }

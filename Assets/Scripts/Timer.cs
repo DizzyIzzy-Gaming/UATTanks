@@ -16,14 +16,14 @@ public class Timer : MonoBehaviour
     void Update()
     {
         if (Time.time >= nextEvent)
-		{
+        {
             Debug.Log("The timer has run out");
             ResetTimer();
-		}
+        }
     }
 
-	private void ResetTimer()
-	{
+    private void ResetTimer()
+    {
         nextEvent = Time.time + timeToWait;
-	}
+    }
 }

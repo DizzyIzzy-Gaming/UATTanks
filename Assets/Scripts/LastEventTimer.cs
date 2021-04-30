@@ -16,14 +16,14 @@ public class LastEventTimer : MonoBehaviour
     void Update()
     {
         if (previousEvent < (Time.time - timeToWait))
-		{
+        {
             Debug.Log("The timer has ended");
             ResetTimer();
-		}
+        }
     }
 
-	private void ResetTimer()
-	{
+    private void ResetTimer()
+    {
         previousEvent = Time.time;
-	}
+    }
 }

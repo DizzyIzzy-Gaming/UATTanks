@@ -9,7 +9,7 @@ using UnityEngine;
 public class TankShooter : MonoBehaviour
 {
     private TankData tData;
-    public GameObject firePoint;
+    public GameObject firePoint; //
     public GameObject cannonBallPrefab;
     // Start is called before the first frame update
     void Start()

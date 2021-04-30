@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(TankMover))]
+[RequireComponent(typeof(TankMotor))]
 
 public class TankData : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class TankData : MonoBehaviour
     public float moveSpeed;
     public float rotateSpeed;
     public TankMover mover;
+	public float shootingDamage;
 
 	void Start()
 	{

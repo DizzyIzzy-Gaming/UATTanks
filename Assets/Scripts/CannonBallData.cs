@@ -12,6 +12,7 @@ public class CannonBallData : MonoBehaviour
     {
 
         Attack attackData = new Attack(attacker, attackDamage);
+        
 
         collision.gameObject.SendMessage("TakeDamage", attackDamage, SendMessageOptions.DontRequireReceiver);
         //Destroy CannonBall

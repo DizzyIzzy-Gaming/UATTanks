@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(TankData))]
+[RequireComponent(typeof(TankShooter))]
+[RequireComponent(typeof(TankMotor))]
 public class PlayerController : MonoBehaviour
 {
     public TankData tData;

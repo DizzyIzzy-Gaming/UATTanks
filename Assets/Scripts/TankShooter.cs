@@ -11,6 +11,8 @@ public class TankShooter : MonoBehaviour
     private TankData tData;
     public GameObject firePoint; //
     public GameObject cannonBallPrefab;
+    private bool canShoot = true;
+    //private bool canShoot;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,19 +29,37 @@ public class TankShooter : MonoBehaviour
 	{
         //throw new NotImplementedException();
         //check if we can shoot
+        if (canShoot)
+		{
+            //instantiate cannon ball.
+            GameObject firedCannonBall = Instantiate(cannonBallPrefab, firePoint.transform.position, firePoint.transform.rotation);
+            CannonBallData cannonBall = firedCannonBall.GetComponent<CannonBallData>();
 
-        //instantiate cannon ball.
-        GameObject firedCannonBall = Instantiate(cannonBallPrefab);
+            //Shoot forward rigidbody.addforce()
+            Rigidbody cannonBallRB = firedCannonBall.GetComponent<Rigidbody>();
+            cannonBallRB.AddForce(firePoint.transform.forward * tData.cannonBallSpeed);
 
-        //Shoot forward rigidbody.addforce()
+            //Cannon ball needs data: Who fired it and how much will it do
+            cannonBall.attacker = this.gameObject;
+            cannonBall.attackDamage = tData.shootingDamage;
+            canShoot = false;
+            StartCoroutine(ShootRate());
 
-        //Cannon ball needs data: Who fired it and how much will it do
-        CannonBallData cannonBall = firedCannonBall.GetComponent<CannonBallData>();
-        cannonBall.attacker = this.gameObject;
-        cannonBall.attackDamage = tData.shootingDamage;
+        }
+		else
+		{
+            Debug.Log("Can't shoot");
+		}
+        
 
 
 	}
 
+    IEnumerator ShootRate()
+	{
+        yield return new WaitForSeconds(tData.rateOfFire);
+        canShoot = true;
+
+	}
 	
 }

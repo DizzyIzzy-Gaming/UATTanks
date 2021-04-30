@@ -11,6 +11,8 @@ public class TankData : MonoBehaviour
     public float rotateSpeed;
     public TankMover mover;
 	public float shootingDamage;
+	public float rateOfFire;
+	public float cannonBallSpeed;
 
 	void Start()
 	{

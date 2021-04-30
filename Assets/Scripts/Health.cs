@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     public float currentHealth = 5;
     public float maxHealth = 5;
 
-    public void TakeDamage(Attack attackData)
+    public void TakeDamage(Attack attackData)// handles health, how much damage to take, and if the player should die
 	{
         currentHealth -= attackData.attackDamage;
 
@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
 	private void Die()
 	{
 		Debug.Log("I Died!!");
-		throw new NotImplementedException();
+		Destroy(this.gameObject);// Temporary way for bot to despawn
+		
 	}
 }

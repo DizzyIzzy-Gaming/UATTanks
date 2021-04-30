@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
                 else if (Input.GetKey(KeyCode.S))
                 {
                     //Move Backward (-)
-                    tMotor.Move(-tData.moveSpeed);
+                    tMotor.Move(-tData.reverseSpeed);
 
                 }
                 if (Input.GetKey(KeyCode.A))
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKey(KeyCode.DownArrow))
                 {
                     //Move Backward (-)
-                    tMotor.Move(-tData.moveSpeed);
+                    tMotor.Move(-tData.reverseSpeed);
 
                 }
                 if (Input.GetKey(KeyCode.LeftArrow))

@@ -41,11 +41,10 @@ public class AIController : MonoBehaviour
 		}
 		else
 		{
-            //move forward
             tMotor.Move(tData.moveSpeed);
-
-		}
-
+        }
+        
+		
 
         if(loopType == LoopType.Stop)
 		{
@@ -57,6 +56,10 @@ public class AIController : MonoBehaviour
                     currentWaypoint++;
                 }
             }
+			else
+			{
+                //do Nothing
+			}
         }
         else if (loopType == LoopType.Loop)
 		{
@@ -115,8 +118,9 @@ public class AIController : MonoBehaviour
             Debug.LogWarning("[AIController] Unexpected LoopType");
 		}
         
-        
-        
+
+
+
         //move forward
         //if we are "close enough" to the waypoint, advance to next waypoint
 

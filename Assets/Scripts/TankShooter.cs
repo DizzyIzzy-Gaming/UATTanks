@@ -9,7 +9,7 @@ using UnityEngine;
 public class TankShooter : MonoBehaviour
 {
     private TankData tData;
-    public GameObject firePoint; //
+    public GameObject firePoint; //the Empty GameObject where the bullets will be fired from
     public GameObject cannonBallPrefab;
     private bool canShoot = true;
     //private bool canShoot;
@@ -43,7 +43,8 @@ public class TankShooter : MonoBehaviour
             cannonBall.attacker = this.gameObject;
             cannonBall.attackDamage = tData.shootingDamage;
             canShoot = false;
-            StartCoroutine(ShootRate());
+
+            StartCoroutine(ShootRate());// Handles the fire rate
 
         }
 		else
@@ -55,6 +56,7 @@ public class TankShooter : MonoBehaviour
 
 	}
 
+    //Handles the fire rate for the tank
     IEnumerator ShootRate()
 	{
         yield return new WaitForSeconds(tData.rateOfFire);

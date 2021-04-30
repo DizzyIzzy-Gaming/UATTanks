@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
 
 	private void Die()
 	{
+		Debug.Log("I Died!!");
 		throw new NotImplementedException();
 	}
 }

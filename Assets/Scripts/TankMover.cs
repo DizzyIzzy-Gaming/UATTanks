@@ -35,6 +35,13 @@ public class TankMover : MonoBehaviour
         
     }
 
+ //   public void TurnTowards(Vector3 targetDirection)
+	//{
+ //       Quaternion targetRoation = Quaternion.LookRotation(targetDirection);
+
+ //       tf.rotation = Quaternion.RotateTowards(tf.rotation, targetRotation, td.rotateSpeed * Time.deltaTime);
+	//}
+
     public void Move (Vector3 direction)
     {
         cc.SimpleMove(direction * td.moveSpeed);
@@ -50,14 +57,4 @@ public class TankMover : MonoBehaviour
             transform.Rotate(new Vector3(0, -td.rotateSpeed * Time.deltaTime, 0));
         }
     }
-
-    public void MoveTo(Transform targetTransform)
-    {
-        //Rotate towards the given transform
-        RotateTowards(targetTransform);
-        //move forward
-        cc.SimpleMove(transform.forward * td.moveSpeed);
-    }
-
-    
 }

@@ -5,9 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(TankData))]
 public class PlayerController : MonoBehaviour
 {
-    public TankData tData;
-    public TankMover tMover;
-    public TankShooter tShooter;
+    public TankData td;
     public enum ControlType {WASD, ArrowKeys };
     public ControlType input;
 
@@ -16,9 +14,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tData = GetComponent<TankData>();
-        tMover = GetComponent<TankMover>();
-        tShooter = GetComponent<TankShooter>();
+        td = GetComponent<TankData>();
+        
     }
 
     // Update is called once per frame
@@ -32,67 +29,56 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKey(KeyCode.W))
                 {
                     //Move Forward (+)
-                    tData.mover.Move(transform.forward);
+                    td.mover.Move(transform.forward);
                 }
-                else if (Input.GetKey(KeyCode.S))
+                if (Input.GetKey(KeyCode.S))
                 {
                     //Move Backward (-)
-                    tData.mover.Move(-transform.forward);
+                    td.mover.Move(-transform.forward);
 
                 }
-
-                //Handles Rotation
                 if (Input.GetKey(KeyCode.A))
                 {
                     //Move Counterclockwise (-)
-                    tData.mover.Rotate(false);
+                    td.mover.Rotate(false);
                 }
-                else if (Input.GetKey(KeyCode.D))
+                if (Input.GetKey(KeyCode.D))
                 {
                     //Move Clockwise (+)
-                    tData.mover.Rotate(true);
+                    td.mover.Rotate(true);
                 }
                 else
                 {
-                    tData.mover.Move(directionToMove);
+                    td.mover.Move(directionToMove);
                 }
-
-                //Handles shooting
-                if (Input.GetKey(KeyCode.Space))
-				{
-                    tShooter.Shoot();
-				}
                 break;
                 
             case ControlType.ArrowKeys:
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
                     //Move Forward (+)
-                    tData.mover.Move(transform.forward);
+                    td.mover.Move(transform.forward);
                 }
                 if (Input.GetKey(KeyCode.DownArrow))
                 {
                     //Move Backward (-)
-                    tData.mover.Move(-transform.forward);
+                    td.mover.Move(-transform.forward);
 
                 }
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
                     //Move Counterclockwise (-)
-                    tData.mover.Rotate(false);
+                    td.mover.Rotate(false);
                 }
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
                     //Move Clockwise (+)
-                    tData.mover.Rotate(true);
+                    td.mover.Rotate(true);
                 }
                 else
                 {
-                    tData.mover.Move(directionToMove);
+                    td.mover.Move(directionToMove);
                 }
-                break;
-            default:
-                Debug.LogError("[InputController]Input scheme not implemented");
                 break;
 
 

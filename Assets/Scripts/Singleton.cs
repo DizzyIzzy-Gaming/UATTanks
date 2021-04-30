@@ -20,12 +20,11 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 		}
     }
 
-    public int score;
 
     // Start is called before the first frame update
     protected virtual void Awake()
     {
-        if (IsInitialized)
+        if (IsInitialized)//handles the creation of any Managers and deletion of extra managers that might be instantiated
         {
             Debug.LogError("[Singleton] Tried to create a second instance of game manager");
             GameObject.Destroy(this.gameObject);
@@ -35,7 +34,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
         {
             instance = (T) this;
         }
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);//Keeps object from destroying on scene load
     }
     protected virtual void OnDestroy()
 	{

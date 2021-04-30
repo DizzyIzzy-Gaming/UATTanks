@@ -2,21 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-
-    public static GameManager instance;
-    public int score;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public GameObject playerPrefab;//houses player prefab
+	public GameObject[] EnemyAI;//List of enemy AI in the scene
+	// Start is called before the first frame update
+	protected override void Awake()
+	{
+		base.Awake();
+	}
 }

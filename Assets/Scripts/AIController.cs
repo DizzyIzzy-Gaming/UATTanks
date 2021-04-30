@@ -46,8 +46,8 @@ public class AIController : MonoBehaviour
         
 		
 
-        if(loopType == LoopType.Stop)
-		{
+        if(loopType == LoopType.Stop)//goes through the list of waypoints and stops on the last one
+        {
             if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) < (closeEnough * closeEnough))
             {
                 if (currentWaypoint < (waypoints.Length - 1))
@@ -61,8 +61,8 @@ public class AIController : MonoBehaviour
                 //do Nothing
 			}
         }
-        else if (loopType == LoopType.Loop)
-		{
+        else if (loopType == LoopType.Loop)//goes through the list of waypoints and loops back to the first one
+        {
             
             
             if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) < (closeEnough * closeEnough))
@@ -80,9 +80,9 @@ public class AIController : MonoBehaviour
             
 			
         }
-        else if (loopType == LoopType.PingPong)
-		{
-            if(isLoopingForward)
+        else if (loopType == LoopType.PingPong)//goes through the list of waypoints and goes back in reverse order
+        {
+            if(isLoopingForward)// going through the waypoints in order
 			{
                 if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) < (closeEnough * closeEnough))
                 {
@@ -97,7 +97,7 @@ public class AIController : MonoBehaviour
                     }
                 }
             }
-            else
+            else // go through them in revers
             {
                 if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) < (closeEnough * closeEnough))
                 {
@@ -125,12 +125,8 @@ public class AIController : MonoBehaviour
         //if we are "close enough" to the waypoint, advance to next waypoint
 
 
-        DoPatrol();
+        
     }
 
-    public void DoPatrol ()
-	{
-        
-
-	}
+    
 }

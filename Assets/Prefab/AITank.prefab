@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 3329343677463107146}
   - component: {fileID: 3329343677463107147}
   - component: {fileID: 3329343677463107188}
+  - component: {fileID: 1829207844}
   m_Layer: 0
   m_Name: AITank
   m_TagString: Untagged
@@ -192,9 +193,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  reverseSpeed: 3
   rotateSpeed: 120
-  mover: {fileID: 0}
   shootingDamage: 0
+  rateOfFire: 0
+  cannonBallSpeed: 0
+  temporaryScore: 0
+  cannonBallTimeOut: 0
 --- !u!114 &3329343677463107146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,9 +225,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  reverseSpeed: 0
   rotateSpeed: 100
-  mover: {fileID: 0}
   shootingDamage: 0
+  rateOfFire: 0
+  cannonBallSpeed: 0
+  temporaryScore: 0
+  cannonBallTimeOut: 0
 --- !u!114 &3329343677463107188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,9 +244,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1aa58db08b882438a5866983bfdb96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  td: {fileID: 0}
-  waypoints: []
-  currentWaypointIndex: 0
+  tData: {fileID: 0}
+  tMotor: {fileID: 0}
+  tShooter: {fileID: 0}
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentWaypoint: 0
+  closeEnough: 2
+  loopType: 0
+--- !u!114 &1829207844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329343677463007460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5d99987de4d11458925629419dd1b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 5
+  maxHealth: 5
 --- !u!1 &3329343677463007462
 GameObject:
   m_ObjectHideFlags: 0

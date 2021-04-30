@@ -15,7 +15,7 @@ public class CannonBallData : MonoBehaviour
         //this handles how long the cannonball can travel before being destroyed
         if (isAlive)
         {
-            StartCoroutine(CannonBallAlive());
+            StartCoroutine(CannonBallAlive());//starts the timer for how long the cannon ball is instantiated
         }
         else
         {
@@ -29,7 +29,7 @@ public class CannonBallData : MonoBehaviour
         Attack attackData = new Attack(attacker, attackDamage);
 
 
-        collision.gameObject.SendMessage("TakeDamage", attackData, SendMessageOptions.DontRequireReceiver);
+        collision.gameObject.SendMessage("TakeDamage", attackData, SendMessageOptions.DontRequireReceiver);// tells enemy tank that gets hit to take damage
         attacker.gameObject.SendMessage("AddScore");
         //Destroy CannonBall
         Destroy(this.gameObject);

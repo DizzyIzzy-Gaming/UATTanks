@@ -39,7 +39,7 @@ public class TankShooter : MonoBehaviour
             Rigidbody cannonBallRB = firedCannonBall.GetComponent<Rigidbody>();
             cannonBallRB.AddForce(firePoint.transform.forward * tData.cannonBallSpeed);
 
-            //Cannon ball needs data: Who fired it and how much will it do
+            //Cannon ball needs data: Who fired it and how much will it do and how long is stays instatiated in the world
             cannonBall.attacker = this.gameObject;
             cannonBall.attackDamage = tData.shootingDamage;
             cannonBall.secondsAlive = tData.cannonBallTimeOut;

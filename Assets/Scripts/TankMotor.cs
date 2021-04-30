@@ -12,6 +12,7 @@ public class TankMotor : MonoBehaviour
     void Start()
     {
         characterController = gameObject.GetComponent<CharacterController>();
+
         tf = gameObject.GetComponent<Transform>();
         data = gameObject.GetComponent<TankData>();
     }
@@ -34,5 +35,19 @@ public class TankMotor : MonoBehaviour
         Vector3 rotateVector = Vector3.up * speed;
 
         tf.Rotate(rotateVector, Space.Self);
+    }
+
+    public bool RotateTowards(Transform targetTransform)
+    {
+        //rotate towards that object
+        //find vector to target
+        Vector3 targetVector = targetTransform.position - transform.position;
+        //find direction to look towards
+        Quaternion targetRotation = Quaternion.LookRotation(targetVector);
+        //find rotation that is partway to that rotation
+        Quaternion newRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, td.rotateSpeed);
+        //change to that new rotation
+        transform.rotation = newRotation;
+
     }
 }

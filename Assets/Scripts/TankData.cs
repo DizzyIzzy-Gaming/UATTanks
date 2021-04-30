@@ -6,10 +6,15 @@ using UnityEngine;
 
 public class TankData : MonoBehaviour
 {
-
+	
     public float moveSpeed;
     public float rotateSpeed;
     public TankMover mover;
+	public float shootDelay;
+	public float playerHealth;
+	public float playerMaxHealth;
+	public float shootingDamage;
+	public float shootingRange;
 
 	void Start()
 	{

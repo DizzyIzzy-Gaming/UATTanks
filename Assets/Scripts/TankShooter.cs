@@ -42,6 +42,8 @@ public class TankShooter : MonoBehaviour
             //Cannon ball needs data: Who fired it and how much will it do
             cannonBall.attacker = this.gameObject;
             cannonBall.attackDamage = tData.shootingDamage;
+            cannonBall.secondsAlive = tData.cannonBallTimeOut;
+            cannonBall.isAlive = true;
             canShoot = false;
 
             StartCoroutine(ShootRate());// Handles the fire rate

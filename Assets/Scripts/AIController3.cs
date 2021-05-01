@@ -71,7 +71,8 @@ public class AIController3 : MonoBehaviour
 	{
         if (avoidanceStage == AvoidanceStage.ObstacleDetected)
         {
-            tMotor.Rotate(-1 * tData.rotateSpeed);
+
+            tMotor.Rotate(-tData.rotateSpeed * Time.deltaTime);
             if(CanMove(tData.moveSpeed))
 			{
                 avoidanceStage = AvoidanceStage.AvoidingObstacle;
@@ -113,7 +114,7 @@ public class AIController3 : MonoBehaviour
                 //cant move
                 return false;
 			}
-		}]
+		}
         //otherwise return true
         return true;
 	}

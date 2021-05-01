@@ -6,7 +6,7 @@ public class Senses : MonoBehaviour
 {
 
     public float hearingDistance = 3f;
-    public float fieldOfView = 45f;
+    public float fieldOfView = 45f;// half of actual field of view
 
 
     // Start is called before the first frame update

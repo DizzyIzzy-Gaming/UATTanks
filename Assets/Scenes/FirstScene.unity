@@ -879,7 +879,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713862952}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5ad12f1417b58342bd92aaeb2893fd1, type: 3}
   m_Name: 
@@ -890,6 +890,20 @@ MonoBehaviour:
   fleeDistance: 1
   closeEnough: 4
   attackState: 0
+--- !u!114 &1713862955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713862952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900eb23ed0ba33545bed5ffe226a9966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hearingDistance: 3
+  fieldOfView: 45
 --- !u!1001 &1723049290
 PrefabInstance:
   m_ObjectHideFlags: 0

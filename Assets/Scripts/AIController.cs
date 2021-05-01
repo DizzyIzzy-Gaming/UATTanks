@@ -39,16 +39,13 @@ public class AIController : MonoBehaviour
 		{
             //do nothing
 		}
-		else
-		{
-            tMotor.Move(tData.moveSpeed);
-        }
+		
         
 		
 
         if(loopType == LoopType.Stop)//goes through the list of waypoints and stops on the last one
         {
-            if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) < (closeEnough * closeEnough))
+            if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) <= (closeEnough * closeEnough))
             {
                 if (currentWaypoint < (waypoints.Length - 1))
                 {
@@ -58,14 +55,14 @@ public class AIController : MonoBehaviour
             }
 			else
 			{
-                //do Nothing
-			}
+                tMotor.Move(tData.moveSpeed);
+            }
         }
         else if (loopType == LoopType.Loop)//goes through the list of waypoints and loops back to the first one
         {
             
             
-            if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) < (closeEnough * closeEnough))
+            if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) <= (closeEnough * closeEnough))
             {
                 if(currentWaypoint < (waypoints.Length-1))
 				{
@@ -77,14 +74,18 @@ public class AIController : MonoBehaviour
                     currentWaypoint = 0;
 				}
             }
-            
-			
+            else
+            {
+                tMotor.Move(tData.moveSpeed);
+            }
+
+
         }
         else if (loopType == LoopType.PingPong)//goes through the list of waypoints and goes back in reverse order
         {
             if(isLoopingForward)// going through the waypoints in order
 			{
-                if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) < (closeEnough * closeEnough))
+                if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) <= (closeEnough * closeEnough))
                 {
                     if (currentWaypoint < (waypoints.Length - 1))
                     {
@@ -96,10 +97,14 @@ public class AIController : MonoBehaviour
                         isLoopingForward = false;
                     }
                 }
+                else
+                {
+                    tMotor.Move(tData.moveSpeed);
+                }
             }
             else // go through them in revers
             {
-                if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) < (closeEnough * closeEnough))
+                if (Vector3.SqrMagnitude(transform.position - waypoints[currentWaypoint].transform.position) <= (closeEnough * closeEnough))
                 {
                     if (currentWaypoint > 0)
                     {
@@ -110,6 +115,10 @@ public class AIController : MonoBehaviour
                     {
                         isLoopingForward = true;
                     }
+                }
+                else
+                {
+                    tMotor.Move(tData.moveSpeed);
                 }
             }
         }

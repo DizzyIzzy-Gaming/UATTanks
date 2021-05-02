@@ -7,6 +7,7 @@ public class Senses : MonoBehaviour
 
     public float hearingDistance = 3f;
     public float fieldOfView = 45f;// half of actual field of view
+    public float viewDistance = 5; //how far away the ai can see the player
 
 
     // Start is called before the first frame update
@@ -18,22 +19,7 @@ public class Senses : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach(GameObject player in GameManager.Instance.Players)
-		{
-            if(CanSee(player))
-			{
-                Debug.Log("I see the player");
-                return;
-            }
-		}
-        foreach (GameObject player in GameManager.Instance.Players)
-		{
-            if (CanHear(player))
-			{
-                Debug.Log("I hear the player");
-                return;
-			}
-		}
+        
     }
 
     public bool CanSee(GameObject target)
@@ -49,15 +35,19 @@ public class Senses : MonoBehaviour
 
         if(angleToTarget <= fieldOfView)
 		{
-            RaycastHit hit;
-
-            if(Physics.Raycast(transform.position, vectorToTarget, out hit))
+            if (Vector3.SqrMagnitude(transform.position - target.transform.position) <= (viewDistance * viewDistance))
 			{
-                if (hit.collider.gameObject.tag == "Player")
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, vectorToTarget, out hit))
                 {
-                    return true;
-				}
-			}
+                    if (hit.collider.gameObject.tag == "Player")
+                    {
+                        return true;
+                    }
+                }
+            }
+            
 		}
         return false;
 	}

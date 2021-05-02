@@ -1,0 +1,7 @@
+The Guard
+
+The guard will patrol an area with waypoints.
+
+if he sees the player he will chase and attack
+
+if he some how gets low health he will flee and try to go back to patroling the area.

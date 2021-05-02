@@ -1,0 +1,7 @@
+The Wanderer
+
+Randomly selects a waypoint in the world and travels to the point.
+
+if it sees a player it will chase and try to attack it.
+
+if it's health is low it will run away and try to start randomly traveling to way points again.

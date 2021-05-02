@@ -1,0 +1,6 @@
+The Agressive
+
+The AI will follow waypoints around the world but if he sees a player he will chase it and try to attack it.
+The AI will never flee no matter what so you either have to shake him or destroy him.
+
+if you lose him(The AI), he will go back to patroling.

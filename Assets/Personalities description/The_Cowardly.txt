@@ -1,0 +1,6 @@
+The Cowardly
+
+Will always run from the player if it sees the player.
+
+if it hears the player it will try to find where the sound is coming from. if it sees something it will run away.
+if it doesnt see something and the sound goes away it will go back to looking around to make sure it doesnt get snuck up on.

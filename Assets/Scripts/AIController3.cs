@@ -19,7 +19,6 @@ public class AIController3 : MonoBehaviour
     public float avoidanceTime = 2.0f;
     private float exitTime;
      
-
     public enum AvoidanceStage { NotAvoiding, ObstacleDetected, AvoidingObstacle };
     public AvoidanceStage avoidanceStage = AvoidanceStage.NotAvoiding;
     public float closeEnough = 4f;
@@ -69,6 +68,7 @@ public class AIController3 : MonoBehaviour
     }
     public void Avoid()
 	{
+
         if (avoidanceStage == AvoidanceStage.ObstacleDetected)
         {
 
@@ -98,9 +98,7 @@ public class AIController3 : MonoBehaviour
                 avoidanceStage = AvoidanceStage.ObstacleDetected;
 			}
 		}
-        //Turn to avoid Obstacle
-        //Move forward for a period of time
-        //Attempt to head towards target again
+        
 	}
 
     public bool CanMove(float speed)

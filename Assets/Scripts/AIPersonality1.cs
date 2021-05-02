@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(TankMotor))]
 [RequireComponent(typeof(TankShooter))]
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Senses))]
 public class AIPersonality1 : MonoBehaviour
 {
 
@@ -14,13 +15,20 @@ public class AIPersonality1 : MonoBehaviour
     public TankMotor tMotor;
     public TankShooter tShooter;
     public Health health;
+    public Senses mySenses;
     public float stateExitTime;
+    public float closeEnough = 4f;
+    public float checkDistanceAhead = 5.0f;
 
-    public enum AIPersonality { Guard, Cowardly };
+    public enum AIPersonality { Guard, Cowardly, Aggressive, Wanderer };
     public AIPersonality personality = AIPersonality.Guard;
 
-    public enum AIStates { Chase, ChaseAndFire, CheckForFlee,Flee }
+    public enum AIStates { Chase, ChaseAndFire, CheckForFlee, Flee, Patrol, RandomPatrol }
     public AIStates aiState = AIStates.Chase;
+
+    public enum AvoidanceStage { NotAvoiding, ObstacleDetected, AvoidingObstacle };
+    public AvoidanceStage avoidanceStage = AvoidanceStage.NotAvoiding;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +36,7 @@ public class AIPersonality1 : MonoBehaviour
         tMotor = GetComponent<TankMotor>();
         tShooter = GetComponent<TankShooter>();
         health = GetComponent<Health>();
+        mySenses = GetComponent<Senses>();
     }
 
     // Update is called once per frame
@@ -41,22 +50,39 @@ public class AIPersonality1 : MonoBehaviour
             case AIPersonality.Cowardly:
                 CowardlyFSM();
                 break;
+            case AIPersonality.Aggressive:
+                AggressiveFSM();
+                break;
+            case AIPersonality.Wanderer:
+                WandererFSM();
+                break;
             default:
                 Debug.LogWarning("[AIPersonality1] Unimplemented finite state machine");
                 break;
 		}
     }
 
-    public void GuardFSM()
+	private void WandererFSM()
+	{
+		throw new NotImplementedException();
+	}
+
+	private void AggressiveFSM()
+	{
+		throw new NotImplementedException();
+	}
+
+	public void GuardFSM()
     {
         switch (aiState)
 		{
             case AIStates.Chase:
                 //Do Behaviours
+                if(canSee)
                 Chase();
 
                 //Check for transitions
-                if (health.currentHealth < health.maxHealth * 0.5)
+                if (health.currentHealth < health.maxHealth)
                 {
                     ChangeState(AIStates.CheckForFlee);
                 }
@@ -107,9 +133,31 @@ public class AIPersonality1 : MonoBehaviour
         return true;
 	}
 
-	private void Chase()
+	private void Chase(GameObject target)
 	{
-		//TODO: Write this method
+        //TODO: Write this method
+        if (tMotor.RotateTowards(target.transform.position, tData.rotateSpeed))
+        {
+            //Do Nothing
+        }
+        else if (!CanMove(tData.moveSpeed))
+        {
+            avoidanceStage = AvoidanceStage.ObstacleDetected;
+        }
+        else
+        {
+            if (Vector3.SqrMagnitude(transform.position - target.transform.position) >= (closeEnough * closeEnough))
+            {
+                tMotor.Move(tData.moveSpeed);
+
+            }
+
+        }
+    }
+
+	private bool CanMove(float checkDistanceAhead)
+	{
+		
 	}
 
 	public void CowardlyFSM()

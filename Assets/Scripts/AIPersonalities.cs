@@ -116,6 +116,7 @@ public class AIPersonalities : MonoBehaviour
                         Debug.Log("I heard something!");
                         playerHeard = player;
                         ChangeState(AIStates.CheckForPlayer);
+                        exitTime = timeToCheckForPlayer;
                     }
                 }
 
@@ -271,6 +272,7 @@ public class AIPersonalities : MonoBehaviour
                         Debug.Log("I heard something!");
                         playerHeard = player;
                         ChangeState(AIStates.CheckForPlayer);
+                        exitTime = timeToCheckForPlayer;
                     }
                 }
 
@@ -379,6 +381,7 @@ public class AIPersonalities : MonoBehaviour
                         Debug.Log("I heard something!");
                         playerHeard = player;
                         ChangeState(AIStates.CheckForPlayer);
+                        exitTime = timeToCheckForPlayer;
                     }
 					else
 					{

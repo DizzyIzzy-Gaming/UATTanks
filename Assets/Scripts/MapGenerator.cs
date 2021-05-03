@@ -16,8 +16,7 @@ public class MapGenerator : MonoBehaviour
     public GameObject[] gridPrefabs;
     private Room[,] grid;
 
-    public enum MapGenerationType { Random, MapOfTheDay, CustomSeed};
-    public MapGenerationType mapType = MapGenerationType.Random;
+    
 
 
     // Start is called before the first frame update
@@ -43,16 +42,16 @@ public class MapGenerator : MonoBehaviour
 
     public void GenerateGrid()// generates the map
     {
-        switch (mapType)
+        switch (GameManager.Instance.mapType)
         {
             //the different types of random generations
-            case MapGenerationType.Random:
+            case GameManager.MapGenerationType.Random:
                 mapSeed = DateToInt(DateTime.Now);
                 break;
-            case MapGenerationType.MapOfTheDay:
+            case GameManager.MapGenerationType.MapOfTheDay:
                 mapSeed = DateToInt(DateTime.Now.Date);
                 break;
-            case MapGenerationType.CustomSeed:
+            case GameManager.MapGenerationType.CustomSeed:
                 // Don't change the seed
                 break;
         }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -12,19 +13,31 @@ public class GameManager : Singleton<GameManager>
 	public List<GameObject> healthPowerUps = new List<GameObject>();// list of power ups
 	public GameObject[] EnemyAIPrefabs;// list of AI prefabs
 
-	public int playerScore;
+	public int oldPlayerScore;
 
+	public ScoreData player1Score;
+	public ScoreData player2Score;
 
 	public List<EnemySpawnPoints> enemySpawnPoints = new List<EnemySpawnPoints>();//list of enemy spawn points
 	public EnemySpawnPoints lastPointSpawnedOn;// a variable to hold the last enemy spawnpoint that was used
 	public List<PlayerSpawnPoints> playerSpawnPoints = new List<PlayerSpawnPoints>();
 
-	public bool isSinglePlayer = true;
+	public enum MapGenerationType { Random, MapOfTheDay, CustomSeed };
+	public MapGenerationType mapType = MapGenerationType.Random;
+
+	public float musicVolume;
+	public float sfxVolume;
 
 	// Start is called before the first frame update
 	protected override void Awake()
 	{
+		
+		LoadPreferences();
 		base.Awake();
+	}
+	private void Start()
+	{
+		SceneManager.LoadScene(1);
 	}
 
 	public void SpawnEnemies(int numberToSpawn)
@@ -53,5 +66,44 @@ public class GameManager : Singleton<GameManager>
 		randomPlayerSpawnPoint.SpawnPlayer();
 	}
 
+	public void SavePreferences()
+	{
+		PlayerPrefs.SetFloat("musicVolume", musicVolume);
+		PlayerPrefs.SetFloat("sfxVolume", sfxVolume);
+		//TODO: test this out
+		PlayerPrefs.SetInt("mapType", (int) mapType);
+		PlayerPrefs.Save();
+	}
+
+	public void LoadPreferences()
+	{
+		if(PlayerPrefs.HasKey("musicVolume"))
+		{
+			musicVolume = PlayerPrefs.GetFloat("musicVolume");
+		}
+		else
+		{
+			sfxVolume = 1.0f;
+		}
+
+		if (PlayerPrefs.HasKey("sfxVolume"))
+		{
+			sfxVolume = PlayerPrefs.GetFloat("sfxVolume");
+		}
+		else
+		{
+			sfxVolume = 1.0f;
+		}
+
+		if(PlayerPrefs.HasKey("mapType"))
+		{
+			mapType = (MapGenerationType) PlayerPrefs.GetInt("mapType");
+		}
+		else
+		{
+			mapType = MapGenerationType.Random;
+		}
+		//Load Music volume
+	}
 	
 }

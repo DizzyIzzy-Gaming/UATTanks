@@ -15,6 +15,6 @@ public class PlayerHUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = GameManager.Instance.playerScore.ToString();
+        scoreText.text = GameManager.Instance.oldPlayerScore.ToString();
     }
 }

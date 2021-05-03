@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1223626089994478272
+--- !u!1 &6197861499966928437
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1223626089994478274}
-  - component: {fileID: 9157999448396642899}
+  - component: {fileID: 1818367827515924788}
+  - component: {fileID: 7028021624602961652}
   m_Layer: 0
-  m_Name: Waypoint
+  m_Name: PickUp Spawner
   m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1223626089994478274
+--- !u!4 &1818367827515924788
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223626089994478272}
+  m_GameObject: {fileID: 6197861499966928437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9157999448396642899
+--- !u!114 &7028021624602961652
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223626089994478272}
+  m_GameObject: {fileID: 6197861499966928437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dade5e7f4549ea7468bf860438c8641a, type: 3}
+  m_Script: {fileID: 11500000, guid: 090bd4fb2dc6128459354eb0b6be0e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpToSpawnIn:
+  - {fileID: 3388161494984683902, guid: ea3cd1b600c2ee14880e981fb582499c, type: 3}
+  - {fileID: 3215528193370923216, guid: 6de1b29c3dd945747842d208316a1e69, type: 3}
+  - {fileID: 2498090390909687610, guid: 0fa57e8131058814baa8d531fcc51388, type: 3}
+  spawnedPickup: {fileID: 0}
+  secondUntilSpawn: 30

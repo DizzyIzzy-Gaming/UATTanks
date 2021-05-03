@@ -314,9 +314,10 @@ GameObject:
   - component: {fileID: 316982276881287931}
   - component: {fileID: 4436565194052828}
   - component: {fileID: 3579337373545765880}
+  - component: {fileID: 3700564902113174184}
   m_Layer: 0
   m_Name: Guard Tank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,7 +330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3049519537478034747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6969295, y: 0.52, z: 16.103027}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3049519537477810461}
@@ -367,8 +368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8196f2d5f4a2c4dac551c5d066756c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
-  cannonBallPrefab: {fileID: 0}
+  firePoint: {fileID: 8240661825178760833}
+  cannonBallPrefab: {fileID: 7356030882686034913, guid: 21332c2e71d549d47860859571dccdf9,
+    type: 3}
 --- !u!114 &3049519537477936021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,11 +398,11 @@ MonoBehaviour:
   moveSpeed: 3
   reverseSpeed: 0
   rotateSpeed: 100
-  shootingDamage: 0
-  rateOfFire: 0
-  cannonBallSpeed: 0
+  shootingDamage: 2
+  rateOfFire: 1
+  cannonBallSpeed: 1000
   temporaryScore: 0
-  cannonBallTimeOut: 0
+  cannonBallTimeOut: 3
 --- !u!114 &316982276881287931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5d99987de4d11458925629419dd1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 5
   maxHealth: 5
 --- !u!114 &4436565194052828
 MonoBehaviour:
@@ -442,8 +443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0905bdce08515f4b8fa0eb5cf55224c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRoom: {fileID: 0}
   fleeDistance: 5
   fleeTime: 30
+  timeToCheckForPlayer: 10
+  myWaypoints: []
   currentWaypoint: 0
   avoidanceTime: 2
   enemyRangeForFire: 4
@@ -453,6 +457,20 @@ MonoBehaviour:
   personality: 0
   aiState: 4
   avoidanceStage: 0
+--- !u!114 &3700564902113174184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049519537478034747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d541f650001d1d46a91d91ebedb2901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankHealth: {fileID: 0}
+  powerUps: []
 --- !u!1 &3049519537478034749
 GameObject:
   m_ObjectHideFlags: 0

@@ -132,6 +132,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5778527466064399977}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &80464689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80464688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d541f650001d1d46a91d91ebedb2901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankHealth: {fileID: 0}
+  powerUps: []
 --- !u!1001 &252370458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1789,6 +1803,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9813df77db018bc40bf8c6f06436b3a1, type: 3}
+--- !u!1 &1145601971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3049519537478034747, guid: bbef81ddd85307f48b2cdc9b15e7344f,
+    type: 3}
+  m_PrefabInstance: {fileID: 316982276891803326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1145601972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145601971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d541f650001d1d46a91d91ebedb2901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankHealth: {fileID: 0}
+  powerUps: []
 --- !u!4 &1231472862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1223626089994478274, guid: 9813df77db018bc40bf8c6f06436b3a1,
@@ -1979,6 +2013,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273084161}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1283142017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2294607905159799930, guid: fed3330de4afda94488859b18b2341ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 3597287397308804269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1283142018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283142017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d541f650001d1d46a91d91ebedb2901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankHealth: {fileID: 0}
+  powerUps: []
 --- !u!1 &1347001276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,6 +2097,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 252370458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1389548165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4499010052357797469, guid: 603fd90e99a2eb74e84cdfd5614a7f17,
+    type: 3}
+  m_PrefabInstance: {fileID: 1178682655595047201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1389548166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389548165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d541f650001d1d46a91d91ebedb2901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankHealth: {fileID: 0}
+  powerUps: []
 --- !u!1 &1447259992
 GameObject:
   m_ObjectHideFlags: 0
@@ -2302,6 +2376,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 352126593}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1843570989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8062932699967179587, guid: e2341c53afc14b744a37362d05fa5362,
+    type: 3}
+  m_PrefabInstance: {fileID: 7653011429129472260}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1843570990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843570989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d541f650001d1d46a91d91ebedb2901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankHealth: {fileID: 0}
+  powerUps: []
 --- !u!1 &1910611104
 GameObject:
   m_ObjectHideFlags: 0

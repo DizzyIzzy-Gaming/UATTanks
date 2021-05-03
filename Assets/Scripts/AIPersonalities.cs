@@ -19,11 +19,14 @@ public class AIPersonalities : MonoBehaviour
     private TankShooter tShooter;
     private Health health;
     private Senses mySenses;
+    public Room myRoom;
 //Flee Variables
     public float fleeDistance = 5.0f; // How far the AI flees 
     public float fleeTime = 30.0f; // How long you want the AI to flee for
     public float timeToCheckForPlayer = 10.0f;
     //Variables for Patroling Waypoints
+
+    public List<GameObject> myWaypoints;
     private bool isLoopingForward = true;
     public int currentWaypoint = 0;
 //Variables for the AI to keep track of the player they had seen or heard
@@ -161,7 +164,7 @@ public class AIPersonalities : MonoBehaviour
 
 
                 //Check for transitions
-                if (health.currentHealth < health.maxHealth) //Checks if the AI is low health if it is, flee
+                if (health.CurrentHealth < health.maxHealth) //Checks if the AI is low health if it is, flee
                 {
                     ChangeState(AIStates.CheckForFlee);
                 }
@@ -186,7 +189,7 @@ public class AIPersonalities : MonoBehaviour
 
 
                 //check for transitions
-                if (health.currentHealth < health.maxHealth * 0.5)
+                if (health.CurrentHealth < health.maxHealth * 0.5)
                 {
                     ChangeState(AIStates.CheckForFlee);
                 }
@@ -430,7 +433,7 @@ public class AIPersonalities : MonoBehaviour
 
 
                 //Check for transitions
-                if (health.currentHealth < health.maxHealth) //Checks if the AI is low health if it is, flee
+                if (health.CurrentHealth < health.maxHealth) //Checks if the AI is low health if it is, flee
                 {
                     ChangeState(AIStates.CheckForFlee);
                 }
@@ -455,7 +458,7 @@ public class AIPersonalities : MonoBehaviour
                 
 
                 //check for transitions
-                if(health.currentHealth < health.maxHealth * 0.5) 
+                if(health.CurrentHealth < health.maxHealth * 0.5) 
 				{
                     ChangeState(AIStates.CheckForFlee);
 				}
@@ -710,6 +713,28 @@ public class AIPersonalities : MonoBehaviour
     //chases the player and also fires at the player
     private void ChaseAndFire(GameObject target)
 	{
+        if(target != null)
+		{
+            //TODO: write this method
+            if (tMotor.RotateTowards(target.transform.position, tData.rotateSpeed))
+            {
+                //Do Nothing
+            }
+            else
+            {
+                if (Vector3.SqrMagnitude(transform.position - target.transform.position) >= (closeEnough * closeEnough))
+                {
+                    tMotor.Move(tData.moveSpeed);
+
+                }
+                tShooter.Shoot();
+
+            }
+        }
+		else
+		{
+            return;
+		}
         //TODO: write this method
         if (tMotor.RotateTowards(target.transform.position, tData.rotateSpeed))
         {

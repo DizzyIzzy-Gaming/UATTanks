@@ -264,7 +264,8 @@ GameObject:
   - component: {fileID: 5778527466064399978}
   - component: {fileID: 5778527466064399956}
   - component: {fileID: 5778527466064399958}
-  - component: {fileID: 5778527466064399953}
+  - component: {fileID: 7297984305581865748}
+  - component: {fileID: -746838411119831051}
   m_Layer: 0
   m_Name: Player Tank
   m_TagString: Player
@@ -369,7 +370,7 @@ MonoBehaviour:
   firePoint: {fileID: 5778527465275470484}
   cannonBallPrefab: {fileID: 7356030882686034913, guid: 21332c2e71d549d47860859571dccdf9,
     type: 3}
---- !u!114 &5778527466064399953
+--- !u!114 &7297984305581865748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -381,8 +382,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5d99987de4d11458925629419dd1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 5
   maxHealth: 5
+--- !u!114 &-746838411119831051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5778527466126607705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d541f650001d1d46a91d91ebedb2901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankHealth: {fileID: 0}
+  powerUps: []
 --- !u!1 &5778527466126607707
 GameObject:
   m_ObjectHideFlags: 0

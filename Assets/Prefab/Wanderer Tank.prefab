@@ -454,9 +454,10 @@ GameObject:
   - component: {fileID: 8201921220749989324}
   - component: {fileID: 7634429937099774262}
   - component: {fileID: 5104244166190375653}
+  - component: {fileID: 1956505133322844112}
   m_Layer: 0
   m_Name: Wanderer Tank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,7 +470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8062932699967179587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.2800255, y: 0.35, z: 15.218322}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2906453523584284657}
@@ -534,14 +535,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776baec7cb5df8a4db2822862000c7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
   reverseSpeed: 0
   rotateSpeed: 100
-  shootingDamage: 0
-  rateOfFire: 0
-  cannonBallSpeed: 0
+  shootingDamage: 2
+  rateOfFire: 1
+  cannonBallSpeed: 1000
   temporaryScore: 0
-  cannonBallTimeOut: 0
+  cannonBallTimeOut: 3
 --- !u!114 &8201921220749989324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5d99987de4d11458925629419dd1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 5
   maxHealth: 5
 --- !u!114 &7634429937099774262
 MonoBehaviour:
@@ -568,9 +568,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900eb23ed0ba33545bed5ffe226a9966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearingDistance: 3
+  hearingDistance: 5
   fieldOfView: 45
-  viewDistance: 5
+  viewDistance: 10
 --- !u!114 &5104244166190375653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,8 +583,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0905bdce08515f4b8fa0eb5cf55224c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRoom: {fileID: 0}
   fleeDistance: 5
   fleeTime: 30
+  timeToCheckForPlayer: 10
+  myWaypoints: []
   currentWaypoint: 0
   avoidanceTime: 2
   enemyRangeForFire: 4
@@ -594,3 +597,17 @@ MonoBehaviour:
   personality: 3
   aiState: 5
   avoidanceStage: 0
+--- !u!114 &1956505133322844112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8062932699967179587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d541f650001d1d46a91d91ebedb2901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankHealth: {fileID: 0}
+  powerUps: []

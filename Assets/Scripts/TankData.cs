@@ -5,9 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(TankMotor))]
 
 public class TankData : MonoBehaviour
-{
-
-    public float moveSpeed;
+{ 
+	public float moveSpeed;
 	public float reverseSpeed;
     public float rotateSpeed;
 	public float shootingDamage;
@@ -15,7 +14,7 @@ public class TankData : MonoBehaviour
 	public float cannonBallSpeed;
 	public float temporaryScore;//will temporarily be here
 	public float cannonBallTimeOut;//how long they are instantiated for without hitting anything
-	
+	public float lives;
 
 	void Start()
 	{

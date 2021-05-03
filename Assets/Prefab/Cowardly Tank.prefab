@@ -314,9 +314,10 @@ GameObject:
   - component: {fileID: 3597287398099979194}
   - component: {fileID: 4935165493509408406}
   - component: {fileID: 2785077823480377992}
+  - component: {fileID: 3297437314334414834}
   m_Layer: 0
   m_Name: Cowardly Tank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,7 +330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2294607905159799930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.060082, y: 0.4, z: 14.619182}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2294607905160034396}
@@ -392,14 +393,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776baec7cb5df8a4db2822862000c7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
   reverseSpeed: 0
   rotateSpeed: 100
-  shootingDamage: 0
-  rateOfFire: 0
-  cannonBallSpeed: 0
+  shootingDamage: 2
+  rateOfFire: 1
+  cannonBallSpeed: 1000
   temporaryScore: 0
-  cannonBallTimeOut: 0
+  cannonBallTimeOut: 3
 --- !u!114 &3597287398099979194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5d99987de4d11458925629419dd1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 5
   maxHealth: 5
 --- !u!114 &4935165493509408406
 MonoBehaviour:
@@ -426,8 +426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900eb23ed0ba33545bed5ffe226a9966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearingDistance: 3
+  hearingDistance: 5
   fieldOfView: 45
+  viewDistance: 10
 --- !u!114 &2785077823480377992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,8 +441,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0905bdce08515f4b8fa0eb5cf55224c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myRoom: {fileID: 0}
   fleeDistance: 5
   fleeTime: 30
+  timeToCheckForPlayer: 10
+  myWaypoints: []
+  currentWaypoint: 0
   avoidanceTime: 2
   enemyRangeForFire: 4
   stateExitTime: 0
@@ -450,6 +455,20 @@ MonoBehaviour:
   personality: 1
   aiState: 6
   avoidanceStage: 0
+--- !u!114 &3297437314334414834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2294607905159799930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d541f650001d1d46a91d91ebedb2901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankHealth: {fileID: 0}
+  powerUps: []
 --- !u!1 &2294607905159799932
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,12 @@ public class CannonBallData : MonoBehaviour
 
 
         collision.gameObject.SendMessage("TakeDamage", attackData, SendMessageOptions.DontRequireReceiver);// tells enemy tank that gets hit to take damage
-        attacker.gameObject.SendMessage("AddScore");
+        
+        if(collision.gameObject.CompareTag("Enemy"))
+		{
+            attacker.gameObject.SendMessage("AddScore");
+        }
+        
         //Destroy CannonBall
         Destroy(this.gameObject);
     }

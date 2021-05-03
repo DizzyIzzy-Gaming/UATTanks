@@ -12,6 +12,8 @@ public class GameManager : Singleton<GameManager>
 	public List<GameObject> healthPowerUps = new List<GameObject>();// list of power ups
 	public GameObject[] EnemyAIPrefabs;// list of AI prefabs
 
+	public int playerScore;
+
 
 	public List<EnemySpawnPoints> enemySpawnPoints = new List<EnemySpawnPoints>();//list of enemy spawn points
 	public EnemySpawnPoints lastPointSpawnedOn;// a variable to hold the last enemy spawnpoint that was used

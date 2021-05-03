@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1107218051991341607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1107218051991341605}
+  - component: {fileID: 1107218051991341606}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1107218051991341605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107218051991341607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1107218051991341606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107218051991341607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e0b7eb1a383e444bd818e36cdb89af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 5778527466126607705, guid: 1e6d11473a5883d46b804206f960aea7,
+    type: 3}
+  EnemyAI:
+  - {fileID: 0}
+  - {fileID: 0}
+  Players:
+  - {fileID: 0}
+  - {fileID: 0}
+  waypoints: []
+  healthPowerUps: []
+  EnemyAIPrefabs:
+  - {fileID: 4499010052357797469, guid: 603fd90e99a2eb74e84cdfd5614a7f17, type: 3}
+  - {fileID: 3049519537478034747, guid: bbef81ddd85307f48b2cdc9b15e7344f, type: 3}
+  - {fileID: 2294607905159799930, guid: fed3330de4afda94488859b18b2341ba, type: 3}
+  - {fileID: 8062932699967179587, guid: e2341c53afc14b744a37362d05fa5362, type: 3}
+  playerScore: 0
+  enemySpawnPoints: []
+  lastPointSpawnedOn: {fileID: 0}
+  playerSpawnPoints: []
+  isSinglePlayer: 1
